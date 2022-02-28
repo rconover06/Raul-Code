@@ -1,0 +1,80 @@
+REM ===================================
+
+REM Created by Raul C.
+
+REM ===================================
+
+DELAY 500
+
+GUI r
+
+DELAY 500
+
+STRING chrome.exe https://wallpapersbook.com/wp-content/uploads/2020/09/david-hasselhoff-wallpaper-28.jpg
+
+ENTER
+
+DELAY 1500
+
+CTRL s
+
+DELAY 500
+
+STRING %userprofile%\downloads\HFwall.jpg
+
+ENTER
+
+REM ALT F4
+
+GUI r
+
+DELAY 500
+
+STRING powershell
+
+ENTER
+
+DELAY 500
+
+STRING $MyWallpaper="%userprofile%\downloads\HFwall.jpg"
+
+ENTER
+
+DELAY 150
+
+STRING $code = @' 
+
+ENTER
+
+DELAY 150
+
+STRING using System.Runtime.InteropServices; 
+
+ENTER
+
+DELAY 150
+
+STRING namespace Win32{ public class Wallpaper{[DllImport("user32.dll", CharSet=CharSet.Auto)] static extern int SystemParametersInfo (int uAction , int uParam , string lpvParam , int fuWinIni) ; public static void SetWallpaper(string thePath){ SystemParametersInfo(20,0,thePath,3);}}}
+
+ENTER
+
+DELAY 150
+
+STRING '@
+
+ENTER
+
+DELAY 150
+
+STRING add-type $code
+
+ENTER
+DELAY 150 
+
+STRING [Win32.Wallpaper]::SetWallpaper($MyWallpaper)
+
+ENTER
+
+STRING exit
+
+ENTER
