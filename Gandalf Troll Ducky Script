@@ -4,12 +4,12 @@ REM Opens IE and plays a video of Gandalf
 REM Created by the one and only A.K.
 REM =======================================
 
-DELAY 1000
+DELAY 1500
 GUI r
-DELAY 1000
+DELAY 1500
 STRING powershell
 ENTER
-DELAY 200
+DELAY 1000
 STRING $WScript = New-Object -com wscript.shell; 1..50 | % { $WScript.SendKeys([char]175) }; 
 STRING Start-Process iexplore -ArgumentList "-k https://player.vimeo.com/video/198392879?autoplay=1"
 ENTER
